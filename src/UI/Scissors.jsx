@@ -1,8 +1,14 @@
 import scissorImg from "../images/scissors-emoji.png";
 
-const Scissors = ({ params, getResult }) => {
+const Scissors = ({ getResult, setPlayerMove }) => {
     return (
-        <button className="move-button" onClick={() => getResult(params)}>
+        <button
+            className="move-button"
+            onClick={() => {
+                getResult("scissors");
+                setPlayerMove("scissors");
+            }}
+        >
             <img src={scissorImg} className="move-icon" />
         </button>
     );

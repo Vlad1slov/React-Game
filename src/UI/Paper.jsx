@@ -1,8 +1,14 @@
 import paperImg from "../images/paper-emoji.png";
 
-const Paper = ({ getResult }) => {
+const Paper = ({ getResult, setPlayerMove }) => {
     return (
-        <button className="move-button" onClick={() => getResult("paper")}>
+        <button
+            className="move-button"
+            onClick={() => {
+                getResult("paper");
+                setPlayerMove("paper");
+            }}
+        >
             <img src={paperImg} className="move-icon" />
         </button>
     );

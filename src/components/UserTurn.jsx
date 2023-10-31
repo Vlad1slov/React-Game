@@ -2,15 +2,12 @@ import Paper from "../UI/Paper";
 import Rock from "../UI/Rock";
 import Scissors from "../UI/Scissors";
 
-const UserTurn = ({ getResult }) => {
+const UserTurn = ({ getResult, setPlayerMove }) => {
     return (
         <div>
-            <Rock params="rock" getResult={(params) => getResult(params)} />
-            <Paper params="paper" getResult={(params) => getResult(params)} />
-            <Scissors
-                params="scissors"
-                getResult={(params) => getResult(params)}
-            />
+            <Rock getResult={getResult} setPlayerMove={setPlayerMove} />
+            <Paper getResult={getResult} setPlayerMove={setPlayerMove} />
+            <Scissors getResult={getResult} setPlayerMove={setPlayerMove} />
         </div>
     );
 };
