@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./App.css";
 import ResetButton from "./UI/ResetButton";
 import UserScore from "./components/UserScore";
@@ -14,6 +14,11 @@ function App() {
     });
     const [result, setResult] = useState("");
     const [computerMove, setComputerMove] = useState(pickComputerMove());
+    const [playerMove, setPlayerMove] = useState("");
+
+    // useEffect(() => {
+
+    // }, [playerMove])
 
     function getResultHandler(playerMove) {
         setComputerMove(pickComputerMove());
@@ -72,8 +77,15 @@ function App() {
     return (
         <div className="App">
             <h1>Rock Paper Scissors</h1>
-            <UserTurn getResult={getResultHandler} params="playerMove" />
-            <MoveInfo result={result} computerMove={computerMove} />
+            <UserTurn
+                getResult={getResultHandler}
+                setPlayerMove={setPlayerMove}
+            />
+            <MoveInfo
+                result={result}
+                computerMove={computerMove}
+                playerMove={playerMove}
+            />
             <UserScore score={score} />
             <ResetButton resetScore={resetScoreHandler} />
         </div>
