@@ -14,6 +14,7 @@ function App() {
     const [result, setResult] = useState("");
     const [computerMove, setComputerMove] = useState("");
     const [playerMove, setPlayerMove] = useState("");
+    const [checkDouble, setCheckDouble] = useState(0);
 
     useEffect(() => {
         if (playerMove !== "" && computerMove !== "") {
@@ -78,33 +79,18 @@ function App() {
                     }));
                 }
             }
-
-            // if (result === "You win!") {
-            //     setScore((prevScore) => ({
-            //         ...prevScore,
-            //         wins: prevScore.wins + 1,
-            //     }));
-            //     setResult("");
-            // } else if (result === "You lose.") {
-            //     setScore((prevScore) => ({
-            //         ...prevScore,
-            //         losses: prevScore.losses + 1,
-            //     }));
-            //     setResult("");
-            // } else if (result === "Tie.") {
-            //     setScore((prevScore) => ({
-            //         ...prevScore,
-            //         ties: prevScore.ties + 1,
-            //     }));
-            //     setResult("");
-            // }
         }
-    }, [playerMove, computerMove]);
+    }, [playerMove, computerMove, checkDouble]);
+
+    // useEffect(() => {
+
+    // }, [result]);
 
     return (
         <div className="App">
             <h1>Rock Paper Scissors</h1>
             <UserTurn
+                setCheckDouble={setCheckDouble}
                 setComputerMove={setComputerMove}
                 setPlayerMove={setPlayerMove}
             />
