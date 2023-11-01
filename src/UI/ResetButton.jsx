@@ -1,15 +1,16 @@
-const ResetButton = ({ setScore }) => {
+const ResetButton = ({ setScore, setResult }) => {
     return (
         <div>
             <button
                 className="reset-score-button"
-                onClick={() =>
+                onClick={() => {
                     setScore({
                         wins: 0,
                         losses: 0,
                         ties: 0,
-                    })
-                }
+                    });
+                    setResult("");
+                }}
             >
                 Reset score
             </button>
